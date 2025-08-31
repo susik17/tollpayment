@@ -1,97 +1,105 @@
-Toll Payment Processing System
-Overview
-This project is a Spring Boot application that simulates toll gate payment processing for vehicles on a highway. It includes RESTful APIs and a simple user interface built with Thymeleaf templates. The system allows managing toll gates, processing vehicle journeys with VAT discounts, and tracking payments and revenues.
+ # Toll Payment Processing System
 
-The project demonstrates backend development with Spring Boot, database persistence with MySQL, and frontend templating with Thymeleaf.
+## Overview
+This project is a Spring Boot application that simulates toll gate payment processing for vehicles on a highway. It includes RESTful APIs and a simple Thymeleaf-based web UI. The system manages toll gates, processes vehicle journeys with VIP discounts, and tracks payments and toll revenues.
 
-Features
-Manage toll gates with configurable charges per vehicle type
+It demonstrates backend development with Spring Boot, MySQL persistence, and UI templating with Thymeleaf.
 
-Process vehicle journeys with toll calculations and VIP discounts
+## Features
+- Manage toll gates with custom charges per vehicle type  
+- Process vehicle journeys including VIP discount application  
+- Track journeys and total toll paid per vehicle  
+- REST APIs for journey processing and data retrieval  
+- Simple frontend UI using Thymeleaf templates  
+- MySQL persistence using Spring Data JPA  
 
-Track journeys and total toll amounts paid per vehicle
-
-REST APIs for journey submission and data retrieval
-
-Simple interactive web UI using Thymeleaf templates
-
-Persistent storage with MySQL and Spring Data JPA
-
-Installation and Running
-Download or clone the repository to your local machine.
-
-Create a MySQL database named tolldb and update application.properties with your DB credentials.
-
-Navigate to the project root directory in terminal.
-
-Build the project with Maven:
-
-text
+## Installation and Running
+1. Clone or download the repository.  
+2. Set up MySQL database `tolldb` and update credentials in `application.properties`.  
+3. Build the project using Maven:
 mvn clean install
-Run the Spring Boot application:
 
 text
+4. Run the application:
 mvn spring-boot:run
-Open your browser and visit:
 
 text
+5. Open your browser and visit:
 http://localhost:8080/
-to access the web UI.
-
-API Endpoints
-Method	Endpoint	Description
-POST	/api/journey	Submit a new vehicle journey (via query params)
-GET	/api/vehicles	Get list of all vehicles and their journeys
-GET	/api/tollgates	Get toll gates information and revenue data
-Example API Request
-POST request to start journey:
 
 text
+
+## API Endpoints
+
+| Method | Endpoint           | Description                          |
+|--------|--------------------|------------------------------------|
+| POST   | `/api/journey`     | Start a vehicle journey (query params) |
+| GET    | `/api/vehicles`    | Get all vehicles and their journeys |
+| GET    | `/api/tollgates`   | Get toll gate details and revenue   |
+
+### Example: Start a Journey  
+
 POST http://localhost:8080/api/journey?vehicleNo=TN123&vehicleType=CAR&isVip=false&start=0&destination=1
-Controls (Using UI)
-Navigate via homepage links
 
-Submit journey details with form inputs for vehicle no, type, VIP status, start and destination toll index
-
-View vehicles and their journeys
-
-View toll gate revenue and charges
-
-Project Structure
 text
+
+## Web UI
+
+- Home page with navigation menu  
+- Form to submit new journeys with vehicle details  
+- List of vehicles and their journeys  
+- Toll gate information page displaying revenues and charges  
+
+## Project Structure
+
 project-root/
 └── src/
-    ├── main/
-    │   ├── java/com/toll/api/
-    │   │    ├── controller/    
-    │   │    ├── model/        
-    │   │    └── service/
-    │   └── resources/
-    │        ├── templates/    
-    │        └── application.properties
-    └── pom.xml                
-Screenshots
+├── main/
+│ ├── java/com/toll/api/
+│ │ ├── controller/ # REST and UI controllers
+│ │ ├── model/ # Domain classes (Vehicle, Journey, TollGate)
+│ │ └── service/ # Business logic
+│ └── resources/
+│ ├── templates/ # Thymeleaf templates
+│ └── application.properties
+└── pom.xml # Maven build file
+
+text
+
+## Screenshots
+
+### Home Page 
+![Home page](images/toll1.png)  
 
 
+### Journey Form  
+![Journey Form](images/toll2.png)
 
-![Home page with navigation links](images/toll1.png)  
-![Form to submit a vehicle journey](images/toll2.png)  
-![Displays vehicles and their journeys](images/toll3.png)  
-![Shows toll gate charges and revenue](images/toll4.png)  
+### Vehicles List  
+![Vehicles](images/toll3.png)
 
-Api Testing 
+### Toll Gates Info  
+![Toll Gates](images/toll4.png)
 
-![Api testing 1](images/tollapi1.png) 
+###Api Testings
+
+![Api test 1](images/tollapi1.png) 
 ![Api test 2](images/tollapi2.png) 
 ![Api test 3](images/tollapi3.png) 
 
-Future Improvements
-Add next-piece preview and hold piece functionality
+## Troubleshooting
+- Add `allowPublicKeyRetrieval=true` to MySQL JDBC URL if you encounter public key retrieval errors.  
+- Verify database connection and credentials.  
+- Ensure Thymeleaf templates exist in `src/main/resources/templates/`.  
+- Use Postman or curl to test APIs independently for debugging.  
 
-Implement advanced routing options and toll calculations
+## Future Improvements
+- Add user authentication and authorization  
+- Implement advanced routing and discount rules  
+- Enhance UI with modern frontend framework  
+- Add detailed reports and analytics  
 
-Add user authentication and role-based access
 
-Improve UI with modern frontend frameworks
 
-Add detailed reports and analytics of toll usage
+
+
