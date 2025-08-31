@@ -19,15 +19,13 @@ It demonstrates backend development with Spring Boot, MySQL persistence, and UI 
 3. Build the project using Maven:
 mvn clean install
 
-text
+
 4. Run the application:
 mvn spring-boot:run
 
-text
 5. Open your browser and visit:
 http://localhost:8080/
 
-text
 
 ## API Endpoints
 
@@ -41,7 +39,6 @@ text
 
 POST http://localhost:8080/api/journey?vehicleNo=TN123&vehicleType=CAR&isVip=false&start=0&destination=1
 
-text
 
 ## Web UI
 
@@ -64,7 +61,6 @@ project-root/
 │ └── application.properties
 └── pom.xml # Maven build file
 
-text
 
 ## Screenshots
 
