@@ -53,13 +53,13 @@ project-root/
 └── src/
 ├── main/
 │ ├── java/com/toll/api/
-│ │ ├── controller/ # REST and UI controllers
-│ │ ├── model/ # Domain classes (Vehicle, Journey, TollGate)
-│ │ └── service/ # Business logic
+│ │ ├── controller/
+│ │ ├── model/ 
+│ │ └── service/ 
 │ └── resources/
-│ ├── templates/ # Thymeleaf templates
+│ ├── templates/ 
 │ └── application.properties
-└── pom.xml # Maven build file
+└── pom.xml 
 
 
 ## Screenshots
@@ -69,13 +69,13 @@ project-root/
 
 
 ### Journey Form  
-![Journey Form](images/toll2.png)
+![Journey Form](images/toll4.png)
 
 ### Vehicles List  
 ![Vehicles](images/toll3.png)
 
 ### Toll Gates Info  
-![Toll Gates](images/toll4.png)
+![Toll Gates](images/toll2.png)
 
 ###Api Testings
 
