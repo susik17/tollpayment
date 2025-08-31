@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Vehicles</title>
+</head>
+<body>
+    <h1>Vehicles and Journeys</h1>
+    <div th:if="${vehicles.isEmpty()}">
+        <p>No vehicles found.</p>
+    </div>
+    <div th:each="vehicle : ${vehicles}">
+        <h2 th:text="'Vehicle No: ' + ${vehicle.vehicleNo}"></h2>
+        <p th:text="'Type: ' + ${vehicle.vehicleType} + ', VIP: ' + ${vehicle.isVip}"></p>
+        <div th:each="journey : ${vehicle.journeys}">
+            <p th:text="'Journey: ' + ${journey.start} + ' -> ' + ${journey.destination}"></p>
+            <p th:text="'Tolls Passed: ' + ${journey.tollsPassed}"></p>
+            <p th:text="'Amount Paid: ' + ${journey.amtPaid}"></p>
+            <hr/>
+        </div>
+    </div>
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><title>Toll Gates</title></head>
+<body>
+<h1>Toll Gates</h1>
+
+<div th:if="${#lists.isEmpty(tollgates)}">
+    <p>No toll gates found.</p>
+</div>
+
+<div th:each="toll : ${tollgates}">
+    <h2 th:text="|Toll Id: ${toll.tollId}|"></h2>
+    <p>Total Revenue: <span th:text="${toll.totalRevenue}"></span></p>
+    <p>Charges per Vehicle Type:</p>
+    <ul>
+        <li th:each="entry : ${toll.chargesPerVehicle.entrySet()}"
+            th:text="|${entry.key}: ${entry.value}|">
+        </li>
+    </ul>
+</div>
+
+<a href="/">Back to Home</a>
+</body>
+</html>
